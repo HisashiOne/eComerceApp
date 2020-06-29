@@ -19,6 +19,9 @@
 		2120962224A9720000D433C5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120962124A9720000D433C5 /* LoginViewController.swift */; };
 		2120962424A9720E00D433C5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120962324A9720E00D433C5 /* RegisterViewController.swift */; };
 		2120962624A9721800D433C5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120962524A9721800D433C5 /* MainViewController.swift */; };
+		2120962924A9729400D433C5 /* persitantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120962824A9729400D433C5 /* persitantService.swift */; };
+		2120962B24A9731A00D433C5 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120962A24A9731A00D433C5 /* User+CoreDataProperties.swift */; };
+		2120962D24A9734D00D433C5 /*  User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120962C24A9734D00D433C5 /*  User+CoreDataClass.swift */; };
 		C67AF19B57B524E515F8BFA9 /* Pods_eComerceAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA4EC0DE51017A9BD14E772 /* Pods_eComerceAppUITests.framework */; };
 		D5CD5FAA15001AE6AA800DEA /* Pods_eComerceAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F20FAD91E0CB619274D1345 /* Pods_eComerceAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -60,6 +63,9 @@
 		2120962124A9720000D433C5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2120962324A9720E00D433C5 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		2120962524A9721800D433C5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		2120962824A9729400D433C5 /* persitantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = persitantService.swift; sourceTree = "<group>"; };
+		2120962A24A9731A00D433C5 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2120962C24A9734D00D433C5 /*  User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		30CD19B991783C0F604A0CD6 /* Pods-eComerceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eComerceApp.release.xcconfig"; path = "Target Support Files/Pods-eComerceApp/Pods-eComerceApp.release.xcconfig"; sourceTree = "<group>"; };
 		35019A270381EBBFD6506CEF /* Pods-eComerceAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eComerceAppTests.debug.xcconfig"; path = "Target Support Files/Pods-eComerceAppTests/Pods-eComerceAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4BA4EC0DE51017A9BD14E772 /* Pods_eComerceAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eComerceAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +138,7 @@
 		212095EA24A96F8200D433C5 /* eComerceApp */ = {
 			isa = PBXGroup;
 			children = (
+				2120962724A9726A00D433C5 /* CoreData */,
 				2120962024A971B000D433C5 /* ViewControllers */,
 				212095EB24A96F8200D433C5 /* AppDelegate.swift */,
 				212095ED24A96F8200D433C5 /* SceneDelegate.swift */,
@@ -170,6 +177,16 @@
 				2120962524A9721800D433C5 /* MainViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2120962724A9726A00D433C5 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				2120962824A9729400D433C5 /* persitantService.swift */,
+				2120962A24A9731A00D433C5 /* User+CoreDataProperties.swift */,
+				2120962C24A9734D00D433C5 /*  User+CoreDataClass.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		C2257D47F7A0E2B3E004C31B /* Pods */ = {
@@ -407,7 +424,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2120962224A9720000D433C5 /* LoginViewController.swift in Sources */,
+				2120962D24A9734D00D433C5 /*  User+CoreDataClass.swift in Sources */,
 				2120962424A9720E00D433C5 /* RegisterViewController.swift in Sources */,
+				2120962B24A9731A00D433C5 /* User+CoreDataProperties.swift in Sources */,
+				2120962924A9729400D433C5 /* persitantService.swift in Sources */,
 				212095F624A96F8200D433C5 /* eComerceApp.xcdatamodeld in Sources */,
 				2120962624A9721800D433C5 /* MainViewController.swift in Sources */,
 				212095EC24A96F8200D433C5 /* AppDelegate.swift in Sources */,
