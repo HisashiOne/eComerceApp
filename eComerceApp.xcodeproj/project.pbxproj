@@ -22,6 +22,16 @@
 		2120962924A9729400D433C5 /* persitantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120962824A9729400D433C5 /* persitantService.swift */; };
 		2120962B24A9731A00D433C5 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120962A24A9731A00D433C5 /* User+CoreDataProperties.swift */; };
 		2120962D24A9734D00D433C5 /*  User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120962C24A9734D00D433C5 /*  User+CoreDataClass.swift */; };
+		2120963124A9825C00D433C5 /* listView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2120963024A9825C00D433C5 /* listView.xib */; };
+		2120963324A9828900D433C5 /* historyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2120963224A9828900D433C5 /* historyView.xib */; };
+		2120963524A9829700D433C5 /* userView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2120963424A9829700D433C5 /* userView.xib */; };
+		2120963724A982A500D433C5 /* listCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2120963624A982A500D433C5 /* listCell.xib */; };
+		2120963924A982B600D433C5 /* historyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2120963824A982B600D433C5 /* historyCell.xib */; };
+		2120963C24A9870200D433C5 /* listView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120963B24A9870200D433C5 /* listView.swift */; };
+		2120963E24A9871C00D433C5 /* historyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120963D24A9871C00D433C5 /* historyView.swift */; };
+		2120964024A9874100D433C5 /* listCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120963F24A9874100D433C5 /* listCell.swift */; };
+		2120964224A9875100D433C5 /* historyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120964124A9875100D433C5 /* historyCell.swift */; };
+		2120964424A98A4C00D433C5 /* userView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120964324A98A4C00D433C5 /* userView.swift */; };
 		C67AF19B57B524E515F8BFA9 /* Pods_eComerceAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA4EC0DE51017A9BD14E772 /* Pods_eComerceAppUITests.framework */; };
 		D5CD5FAA15001AE6AA800DEA /* Pods_eComerceAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F20FAD91E0CB619274D1345 /* Pods_eComerceAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +76,16 @@
 		2120962824A9729400D433C5 /* persitantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = persitantService.swift; sourceTree = "<group>"; };
 		2120962A24A9731A00D433C5 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2120962C24A9734D00D433C5 /*  User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2120963024A9825C00D433C5 /* listView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = listView.xib; sourceTree = "<group>"; };
+		2120963224A9828900D433C5 /* historyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = historyView.xib; sourceTree = "<group>"; };
+		2120963424A9829700D433C5 /* userView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = userView.xib; sourceTree = "<group>"; };
+		2120963624A982A500D433C5 /* listCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = listCell.xib; sourceTree = "<group>"; };
+		2120963824A982B600D433C5 /* historyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = historyCell.xib; sourceTree = "<group>"; };
+		2120963B24A9870200D433C5 /* listView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listView.swift; sourceTree = "<group>"; };
+		2120963D24A9871C00D433C5 /* historyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historyView.swift; sourceTree = "<group>"; };
+		2120963F24A9874100D433C5 /* listCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listCell.swift; sourceTree = "<group>"; };
+		2120964124A9875100D433C5 /* historyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historyCell.swift; sourceTree = "<group>"; };
+		2120964324A98A4C00D433C5 /* userView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userView.swift; sourceTree = "<group>"; };
 		30CD19B991783C0F604A0CD6 /* Pods-eComerceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eComerceApp.release.xcconfig"; path = "Target Support Files/Pods-eComerceApp/Pods-eComerceApp.release.xcconfig"; sourceTree = "<group>"; };
 		35019A270381EBBFD6506CEF /* Pods-eComerceAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eComerceAppTests.debug.xcconfig"; path = "Target Support Files/Pods-eComerceAppTests/Pods-eComerceAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4BA4EC0DE51017A9BD14E772 /* Pods_eComerceAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eComerceAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,8 +158,10 @@
 		212095EA24A96F8200D433C5 /* eComerceApp */ = {
 			isa = PBXGroup;
 			children = (
-				2120962724A9726A00D433C5 /* CoreData */,
 				2120962024A971B000D433C5 /* ViewControllers */,
+				2120963A24A986D800D433C5 /* Views */,
+				2120962F24A9817200D433C5 /* Nibs */,
+				2120962724A9726A00D433C5 /* CoreData */,
 				212095EB24A96F8200D433C5 /* AppDelegate.swift */,
 				212095ED24A96F8200D433C5 /* SceneDelegate.swift */,
 				212095F124A96F8200D433C5 /* Main.storyboard */,
@@ -187,6 +209,30 @@
 				2120962C24A9734D00D433C5 /*  User+CoreDataClass.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		2120962F24A9817200D433C5 /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				2120963024A9825C00D433C5 /* listView.xib */,
+				2120963224A9828900D433C5 /* historyView.xib */,
+				2120963424A9829700D433C5 /* userView.xib */,
+				2120963624A982A500D433C5 /* listCell.xib */,
+				2120963824A982B600D433C5 /* historyCell.xib */,
+			);
+			path = Nibs;
+			sourceTree = "<group>";
+		};
+		2120963A24A986D800D433C5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2120963B24A9870200D433C5 /* listView.swift */,
+				2120963D24A9871C00D433C5 /* historyView.swift */,
+				2120963F24A9874100D433C5 /* listCell.swift */,
+				2120964124A9875100D433C5 /* historyCell.swift */,
+				2120964324A98A4C00D433C5 /* userView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		C2257D47F7A0E2B3E004C31B /* Pods */ = {
@@ -310,6 +356,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2120963724A982A500D433C5 /* listCell.xib in Resources */,
+				2120963324A9828900D433C5 /* historyView.xib in Resources */,
+				2120963924A982B600D433C5 /* historyCell.xib in Resources */,
+				2120963524A9829700D433C5 /* userView.xib in Resources */,
+				2120963124A9825C00D433C5 /* listView.xib in Resources */,
 				212095FB24A96F8500D433C5 /* LaunchScreen.storyboard in Resources */,
 				212095F824A96F8500D433C5 /* Assets.xcassets in Resources */,
 				212095F324A96F8200D433C5 /* Main.storyboard in Resources */,
@@ -425,8 +476,13 @@
 			files = (
 				2120962224A9720000D433C5 /* LoginViewController.swift in Sources */,
 				2120962D24A9734D00D433C5 /*  User+CoreDataClass.swift in Sources */,
+				2120963C24A9870200D433C5 /* listView.swift in Sources */,
 				2120962424A9720E00D433C5 /* RegisterViewController.swift in Sources */,
+				2120963E24A9871C00D433C5 /* historyView.swift in Sources */,
+				2120964024A9874100D433C5 /* listCell.swift in Sources */,
 				2120962B24A9731A00D433C5 /* User+CoreDataProperties.swift in Sources */,
+				2120964424A98A4C00D433C5 /* userView.swift in Sources */,
+				2120964224A9875100D433C5 /* historyCell.swift in Sources */,
 				2120962924A9729400D433C5 /* persitantService.swift in Sources */,
 				212095F624A96F8200D433C5 /* eComerceApp.xcdatamodeld in Sources */,
 				2120962624A9721800D433C5 /* MainViewController.swift in Sources */,

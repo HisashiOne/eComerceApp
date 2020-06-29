@@ -106,18 +106,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xWg-Uu-AdE">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="164"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="133"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="164" id="3JV-NR-D37"/>
+                                    <constraint firstAttribute="height" constant="133" id="3JV-NR-D37"/>
                                     <constraint firstAttribute="width" constant="414" id="eu9-dG-LpP"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dgN-n4-2hZ">
-                                <rect key="frame" x="0.0" y="172" width="414" height="724"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="0.0" y="141" width="414" height="755"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="724" id="5JL-4A-iiz"/>
+                                    <constraint firstAttribute="height" constant="755" id="5JL-4A-iiz"/>
                                     <constraint firstAttribute="width" constant="414" id="eQP-xA-GvO"/>
                                 </constraints>
                             </view>
@@ -136,6 +136,10 @@
                         <viewLayoutGuide key="safeArea" id="JRW-W0-J5V"/>
                     </view>
                     <navigationItem key="navigationItem" id="nJ1-1c-13w"/>
+                    <connections>
+                        <outlet property="containerView" destination="dgN-n4-2hZ" id="Neo-fr-Eal"/>
+                        <outlet property="navigationView" destination="xWg-Uu-AdE" id="lfM-Ig-cWc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNH-wT-zgd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
