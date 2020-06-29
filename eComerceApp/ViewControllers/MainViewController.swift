@@ -16,7 +16,8 @@ import SDWebImage
 import AVFoundation
 
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+ 
 
     @IBOutlet weak var navigationView: UIView!
     @IBOutlet weak var containerView: UIView!
@@ -34,6 +35,13 @@ class MainViewController: UIViewController {
     let imagePicker = UIImagePickerController()
     let actInd: UIActivityIndicatorView = UIActivityIndicatorView()
     let container: UIView = UIView()
+    
+    var searchString: String!
+    
+    var tittleArray : [String] = [];
+    var imageArray : [String] = [];
+    var priceArrayArray : [String] = [];
+
     
     
     override func viewDidLoad() {
@@ -62,7 +70,7 @@ class MainViewController: UIViewController {
     }
     
     
-    //PRAGMA MARK: Init Views
+    //MARK: Init Views
     
     private func initView(){
         
@@ -76,6 +84,13 @@ class MainViewController: UIViewController {
             listView_.frame =  self.containerView.frame
             listView_.frame.origin.y =  self.containerView.frame.origin.y - 100
             containerView.addSubview(listView_)
+    
+            listView_.saerchBTN.addTarget(self, action: #selector(searchProduct(_:)), for: .touchUpInside);
+        
+            listView_.mainTableView.delegate = self
+            listView_.mainTableView.dataSource = self
+           
+        
 
              //HistoryView
             let bundle_2 = Bundle(for: historyView.self)
@@ -86,6 +101,8 @@ class MainViewController: UIViewController {
             containerView.addSubview(historyView_)
         
         
+        
+        
             //UserView
             let bundle_3 = Bundle(for: userView.self)
             let nib_3 = UINib(nibName: "userView", bundle: bundle_3)
@@ -93,6 +110,12 @@ class MainViewController: UIViewController {
             userView_.frame =  self.containerView.frame
             userView_.frame.origin.y =  self.containerView.frame.origin.y - 100
             containerView.addSubview(userView_)
+        
+    
+            userView_.isHidden = true
+            historyView_.isHidden = true
+            listView_.isHidden = false
+        
         
     }
     
@@ -129,5 +152,158 @@ class MainViewController: UIViewController {
             }
         
     }
+    
+    //MARK: Search Product
+    @objc func searchProduct(_ sender: Any){
+        
+        view.endEditing(true)
+        
+        if listView_.searchTXT.text != "" {
+             if Reachability_A.isConnectedToNetwork(){
+                
+                showActivityIndicatory(uiView: listView_, container: container , actInd: actInd)
+                self.loadProducts()
+                
+                
+            }
+             else{
+                let snackbar = TTGSnackbar(message: "Sin Conexion a Internet", duration: .middle)
+                snackbar.show()
+            }
+            
+            
+        }else{
+            listView_.searchTXT.layer.borderColor = UIColor.red.cgColor
+            listView_.searchTXT.layer.borderWidth = 1
+            let snackbar = TTGSnackbar(message: "Introduce un producto", duration: .middle)
+            snackbar.show()
+            
+        }
+        
+    }
+    
+    
+    
+    private func loadProducts(){
+    
+        searchString = listView_.searchTXT.text
+        
+        
+        let baseURL = "https://shoppapp.liverpool.com.mx/appclienteservices/services/v3/plp?force-plp=true&search-string=\(searchString!)&page-number=1&number-of-items-per-page=10"
+        
+        debugPrint("Base URL \(baseURL)")
+        
+        
+        Alamofire.request(baseURL, method: .get , parameters: nil ,encoding: JSONEncoding.default, headers: nil).responseJSON{ response in
+                  
+                  self.actInd.stopAnimating()
+                  self.container.isHidden = true
+            
+                    self.tittleArray.removeAll()
+                    self.imageArray.removeAll()
+                    self.priceArrayArray.removeAll()
+                  
+              
+                  
+                  if let status = response.response?.statusCode {
+                                 switch(status){
+                                 case 200:
+                                   
+                                  if let result = response.result.value {
+                                  
+                                  let json_ = JSON(result)
+                                  let data =  json_["status"];
+                                    
+                                    let status = json_["status"]["status"].string
+                                    
+                                    if status == "OK"{
+                                        let results = json_["plpResults"]
+                                        let records = results["records"].array!
+                                         debugPrint("Result Data \(records.count)")
+                                        if records.count > 0{
+                                            
+                                        }else{
+                                            let snackbar = TTGSnackbar(message: "No encontramos ningun criterio", duration: .middle)
+                                                snackbar.show()
+                                        }
+                                       
+                                        
+                                    }else{
+                                        let snackbar = TTGSnackbar(message: "Hubo un error intenta mas tarde", duration: .middle)
+                                            snackbar.show()
+                                                                         
+                                    }
+                                
+                                      
+                                  }
+                                   
+                                  
+                                  
+                                  break
+                              
+                                 default:
+                                  
+                                  let snackbar = TTGSnackbar(message: "Hubo un error intenta mas tarde", duration: .middle)
+                                      snackbar.show()
+                                  
+                                  
+                                  break
+                                  
+                                  
+                      }
+                  }
+                            
+                                     
+                                     
+              
+              }
+        
+        
+        
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+          return tittleArray.count
+     }
+     
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "listcell", for: indexPath) as!listCell
+    
+        return cell
+       
+     }
+     
+    
+    
+    //MARK: Keyboard
+        @objc func dismissKeyboard() {
+                    //Causes the view (or one of its embedded text fields) to resign the first responder status.
+                    view.endEditing(true)
+             }
+        
+        
+        @objc func keyboardWillShow(notification: NSNotification) {
+            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                 if self.view.frame.origin.y == 0{
+                     self.view.frame.origin.y -= keyboardSize.height - 100
+                 }
+             }
+         }
+         
+         @objc func keyboardWillHide(notification: NSNotification) {
+            if ((notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+                 if self.view.frame.origin.y != 0{
+                     //self.view.frame.origin.y += keyboardSize.height
+                     
+                     let screenSize: CGRect = UIScreen.main.bounds
+                     
+                     self.view.backgroundColor = .white
+                     self.view.frame =  CGRect.init(x: 0, y: 0, width: screenSize.width, height: screenSize.height)
+                     
+                 }
+             }
+         }
 
 }

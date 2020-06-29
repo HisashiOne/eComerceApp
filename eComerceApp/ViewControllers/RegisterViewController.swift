@@ -33,7 +33,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
         self.loadUsers()
     }
     
-     //PRAGAMA MARK: Init Views
+     //MARK: Init Views
           private func initView(){
               
               avatarImageView.layer.cornerRadius = 50
@@ -65,7 +65,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
           }
         
         
-    //PRAGMA MARK: Keyboard
+    //MARK: Keyboard
         @objc func dismissKeyboard() {
                     //Causes the view (or one of its embedded text fields) to resign the first responder status.
                     view.endEditing(true)
@@ -109,7 +109,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
         }
         
         
-          //PRAGMA MARK: Image Picker
+          //MARK: Image Picker
           
           func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
               
@@ -220,7 +220,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                    }catch{}
         }
         
-        //PRAGMA MARK: RegisterUser
+        //MARK: RegisterUser
           
           @objc func validateRegister(_ sender: Any){
               

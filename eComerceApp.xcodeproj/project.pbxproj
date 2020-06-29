@@ -32,6 +32,8 @@
 		2120964024A9874100D433C5 /* listCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120963F24A9874100D433C5 /* listCell.swift */; };
 		2120964224A9875100D433C5 /* historyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120964124A9875100D433C5 /* historyCell.swift */; };
 		2120964424A98A4C00D433C5 /* userView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120964324A98A4C00D433C5 /* userView.swift */; };
+		2120964724A9948E00D433C5 /* Reachability_A .swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120964624A9948E00D433C5 /* Reachability_A .swift */; };
+		2120964924A9951800D433C5 /* showActivityIndicatory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120964824A9951800D433C5 /* showActivityIndicatory.swift */; };
 		C67AF19B57B524E515F8BFA9 /* Pods_eComerceAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA4EC0DE51017A9BD14E772 /* Pods_eComerceAppUITests.framework */; };
 		D5CD5FAA15001AE6AA800DEA /* Pods_eComerceAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F20FAD91E0CB619274D1345 /* Pods_eComerceAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -86,6 +88,8 @@
 		2120963F24A9874100D433C5 /* listCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listCell.swift; sourceTree = "<group>"; };
 		2120964124A9875100D433C5 /* historyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historyCell.swift; sourceTree = "<group>"; };
 		2120964324A98A4C00D433C5 /* userView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userView.swift; sourceTree = "<group>"; };
+		2120964624A9948E00D433C5 /* Reachability_A .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reachability_A .swift"; sourceTree = "<group>"; };
+		2120964824A9951800D433C5 /* showActivityIndicatory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showActivityIndicatory.swift; sourceTree = "<group>"; };
 		30CD19B991783C0F604A0CD6 /* Pods-eComerceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eComerceApp.release.xcconfig"; path = "Target Support Files/Pods-eComerceApp/Pods-eComerceApp.release.xcconfig"; sourceTree = "<group>"; };
 		35019A270381EBBFD6506CEF /* Pods-eComerceAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eComerceAppTests.debug.xcconfig"; path = "Target Support Files/Pods-eComerceAppTests/Pods-eComerceAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4BA4EC0DE51017A9BD14E772 /* Pods_eComerceAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eComerceAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +166,7 @@
 				2120963A24A986D800D433C5 /* Views */,
 				2120962F24A9817200D433C5 /* Nibs */,
 				2120962724A9726A00D433C5 /* CoreData */,
+				2120964524A9947400D433C5 /* Libs */,
 				212095EB24A96F8200D433C5 /* AppDelegate.swift */,
 				212095ED24A96F8200D433C5 /* SceneDelegate.swift */,
 				212095F124A96F8200D433C5 /* Main.storyboard */,
@@ -231,8 +236,17 @@
 				2120963F24A9874100D433C5 /* listCell.swift */,
 				2120964124A9875100D433C5 /* historyCell.swift */,
 				2120964324A98A4C00D433C5 /* userView.swift */,
+				2120964824A9951800D433C5 /* showActivityIndicatory.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2120964524A9947400D433C5 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				2120964624A9948E00D433C5 /* Reachability_A .swift */,
+			);
+			path = Libs;
 			sourceTree = "<group>";
 		};
 		C2257D47F7A0E2B3E004C31B /* Pods */ = {
@@ -481,9 +495,11 @@
 				2120963E24A9871C00D433C5 /* historyView.swift in Sources */,
 				2120964024A9874100D433C5 /* listCell.swift in Sources */,
 				2120962B24A9731A00D433C5 /* User+CoreDataProperties.swift in Sources */,
+				2120964724A9948E00D433C5 /* Reachability_A .swift in Sources */,
 				2120964424A98A4C00D433C5 /* userView.swift in Sources */,
 				2120964224A9875100D433C5 /* historyCell.swift in Sources */,
 				2120962924A9729400D433C5 /* persitantService.swift in Sources */,
+				2120964924A9951800D433C5 /* showActivityIndicatory.swift in Sources */,
 				212095F624A96F8200D433C5 /* eComerceApp.xcdatamodeld in Sources */,
 				2120962624A9721800D433C5 /* MainViewController.swift in Sources */,
 				212095EC24A96F8200D433C5 /* AppDelegate.swift in Sources */,

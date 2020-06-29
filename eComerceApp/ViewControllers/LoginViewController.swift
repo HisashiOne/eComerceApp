@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
             self.loadUsers()
     }
     
-    //PRAGMA MARK: Init
+    //MARK: Init
     
       private func initViews(){
           
@@ -68,7 +68,7 @@ class LoginViewController: UIViewController {
       }
       
     
-    //PRAGMA MARK: Login
+    //MARK: Login
    
        @objc func login_(Sender: Any){
           
@@ -134,7 +134,7 @@ class LoginViewController: UIViewController {
        
        
 
-      //PRAGMA MARK: Core Data
+      //MARK: Core Data
       func loadUsers(){
               let  fetchRequest: NSFetchRequest<User> = User.fetchRequest()
              
