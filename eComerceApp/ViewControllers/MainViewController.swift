@@ -44,6 +44,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var idArrayArray : [String] = [];
 
     
+    var isDataLoading:Bool=false
+    var pageNo:Int=1
+    var limit:Int=20
+    var offset:Int=0
+    var didEndReached:Bool=false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -167,6 +173,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
              if Reachability_A.isConnectedToNetwork(){
                 
                 showActivityIndicatory(uiView: listView_, container: container , actInd: actInd)
+                self.tittleArray.removeAll()
+                self.imageArray.removeAll()
+                self.priceArrayArray.removeAll()
+                self.idArrayArray.removeAll()
+                           
+                           
+                self.listView_.mainTableView.reloadData()
+                self.listView_.mainTableView.isHidden = true
                 self.loadProducts()
                 
                 
@@ -194,7 +208,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         searchString = listView_.searchTXT.text
         
         
-        let baseURL = "https://shoppapp.liverpool.com.mx/appclienteservices/services/v3/plp?force-plp=true&search-string=\(searchString!)&page-number=1&number-of-items-per-page=20"
+        let baseURL = "https://shoppapp.liverpool.com.mx/appclienteservices/services/v3/plp?force-plp=true&search-string=\(searchString!)&page-number=\(pageNo)&number-of-items-per-page=20"
         
         debugPrint("Base URL \(baseURL)")
         
@@ -204,14 +218,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                   self.actInd.stopAnimating()
                   self.container.isHidden = true
             
-            self.tittleArray.removeAll()
-            self.imageArray.removeAll()
-            self.priceArrayArray.removeAll()
-            self.idArrayArray.removeAll()
-            
-            
-            self.listView_.mainTableView.reloadData()
-            self.listView_.mainTableView.isHidden = true
+           
               
                   
                   if let status = response.response?.statusCode {
@@ -283,12 +290,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                       }
                   }
                             
-                                     
-                                     
+                
               
               }
-        
-        
         
     }
     
@@ -315,6 +319,29 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return 150
         
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+
+        if ((listView_.mainTableView.contentOffset.y + listView_.mainTableView.frame.size.height) >= listView_.mainTableView.contentSize.height)
+        {
+            if !isDataLoading{
+                isDataLoading = true
+                self.pageNo=self.pageNo+1
+                self.limit=self.limit+10
+                self.offset=self.limit * self.pageNo
+                
+                debugPrint("Load new Page \(pageNo)")
+                
+                showActivityIndicatory(uiView: listView_, container: container , actInd: actInd)
+                self.loadProducts()
+                
+                //loadCallLogData(offset: self.offset, limit: self.limit)
+
+            }
+        }
+
+
     }
     
     
