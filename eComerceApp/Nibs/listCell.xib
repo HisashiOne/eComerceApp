@@ -49,8 +49,8 @@
                                 <constraint firstAttribute="width" constant="246" id="5Ic-pf-Nq1"/>
                                 <constraint firstAttribute="height" constant="25" id="fpa-7y-lit"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <color key="textColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -60,7 +60,7 @@
                     </constraints>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.74531785102739723" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="GQz-mW-c9i" secondAttribute="bottom" constant="21" id="Bza-RR-j3u"/>
                 <constraint firstItem="qea-g6-vp9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="29" id="UCQ-wa-qMS"/>

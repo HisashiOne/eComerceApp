@@ -10,7 +10,7 @@ target 'eComerceApp' do
   pod 'SwiftyJSON', '~> 4.0'
   pod 'SWSegmentedControl'
   pod 'TTGSnackbar'
-  pod 'SDWebImage', '~>3.7'
+  pod 'SDWebImage', '~> 5.0'
 
 
   target 'eComerceAppTests' do

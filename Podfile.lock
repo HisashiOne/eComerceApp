@@ -1,15 +1,15 @@
 PODS:
   - Alamofire (4.8.2)
-  - SDWebImage (3.8.3):
-    - SDWebImage/Core (= 3.8.3)
-  - SDWebImage/Core (3.8.3)
+  - SDWebImage (5.1.0):
+    - SDWebImage/Core (= 5.1.0)
+  - SDWebImage/Core (5.1.0)
   - SwiftyJSON (4.3.0)
   - SWSegmentedControl (2.7.0)
   - TTGSnackbar (1.8.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
-  - SDWebImage (~> 3.7)
+  - SDWebImage (~> 5.0)
   - SwiftyJSON (~> 4.0)
   - SWSegmentedControl
   - TTGSnackbar
@@ -24,11 +24,11 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  SDWebImage: a72e880a8fe0f7fc31efe15aaed443c074d2a80c
+  SDWebImage: fb387001955223213dde14bc08c8b73f371f8d8f
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   SWSegmentedControl: 808ef4b80d0168799a60d8a2d322cfde7f45f46c
   TTGSnackbar: 7edc064c82a916f9f3c4db1ec64eac44143434da
 
-PODFILE CHECKSUM: 5654e66c0a2701d0db654e29fb8207f8e64e213e
+PODFILE CHECKSUM: d3206f1b2209061d2642ffb92bc385ec0e2836d5
 
 COCOAPODS: 1.7.5

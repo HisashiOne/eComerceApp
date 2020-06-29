@@ -40,7 +40,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var tittleArray : [String] = [];
     var imageArray : [String] = [];
-    var priceArrayArray : [String] = [];
+    var priceArrayArray : [Int] = [];
+    var idArrayArray : [String] = [];
 
     
     
@@ -89,6 +90,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
             listView_.mainTableView.delegate = self
             listView_.mainTableView.dataSource = self
+            self.listView_.mainTableView.isHidden = true
+        
+            let nibCell = UINib(nibName: "listCell", bundle:nil)
+            listView_.mainTableView.register(nibCell, forCellReuseIdentifier: "listCell")
            
         
 
@@ -189,7 +194,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         searchString = listView_.searchTXT.text
         
         
-        let baseURL = "https://shoppapp.liverpool.com.mx/appclienteservices/services/v3/plp?force-plp=true&search-string=\(searchString!)&page-number=1&number-of-items-per-page=10"
+        let baseURL = "https://shoppapp.liverpool.com.mx/appclienteservices/services/v3/plp?force-plp=true&search-string=\(searchString!)&page-number=1&number-of-items-per-page=20"
         
         debugPrint("Base URL \(baseURL)")
         
@@ -199,15 +204,21 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                   self.actInd.stopAnimating()
                   self.container.isHidden = true
             
-                    self.tittleArray.removeAll()
-                    self.imageArray.removeAll()
-                    self.priceArrayArray.removeAll()
-                  
+            self.tittleArray.removeAll()
+            self.imageArray.removeAll()
+            self.priceArrayArray.removeAll()
+            self.idArrayArray.removeAll()
+            
+            
+            self.listView_.mainTableView.reloadData()
+            self.listView_.mainTableView.isHidden = true
               
                   
                   if let status = response.response?.statusCode {
                                  switch(status){
                                  case 200:
+                                    
+                                    self.listView_.mainTableView.isHidden = false
                                    
                                   if let result = response.result.value {
                                   
@@ -219,12 +230,31 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                                     if status == "OK"{
                                         let results = json_["plpResults"]
                                         let records = results["records"].array!
-                                         debugPrint("Result Data \(records.count)")
+                                       
                                         if records.count > 0{
+                                            
+                                            for i in 0..<records.count{
+                                                let tittle_ =   records[i]["productDisplayName"].string!
+                                                let id_ = records[i]["productId"].string!
+                                                let price = records[i]["maximumListPrice"].int!
+                                                let image_ =  records[i]["smImage"].string!
+                                                    
+                                                self.tittleArray.append(tittle_)
+                                                self.idArrayArray.append(id_)
+                                                self.priceArrayArray.append(price)
+                                                self.imageArray.append(image_)
+                                            }
+                                            
+                                            
+                                            debugPrint("Result Data \(self.tittleArray)")
+                                            
+                                            self.listView_.mainTableView.reloadData()
                                             
                                         }else{
                                             let snackbar = TTGSnackbar(message: "No encontramos ningun criterio", duration: .middle)
                                                 snackbar.show()
+                                            
+                                              self.listView_.mainTableView.isHidden = true
                                         }
                                        
                                         
@@ -269,12 +299,23 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "listcell", for: indexPath) as!listCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as!listCell
     
+        cell.tittleTXT.text = tittleArray[indexPath.row]
+        cell.idTXT.text = idArrayArray[indexPath.row]
+        cell.priceTXT.text = "$\(priceArrayArray[indexPath.row])"
+
+        cell.productView.sd_setImage(with: URL(string: imageArray[indexPath.row]))
+        
         return cell
        
      }
      
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 150
+        
+    }
     
     
     //MARK: Keyboard

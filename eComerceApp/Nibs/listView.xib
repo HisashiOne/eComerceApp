@@ -15,7 +15,7 @@
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Bm-4X-0Ow">
                     <rect key="frame" x="0.0" y="63" width="414" height="833"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="0.55356378424657537" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="414" id="6A6-PO-9Gb"/>
                         <constraint firstAttribute="height" constant="833" id="7m2-QF-fhu"/>
