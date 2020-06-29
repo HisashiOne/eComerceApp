@@ -40,14 +40,14 @@
                                     <color key="titleColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K3f-X6-fEF">
-                                <rect key="frame" x="157" y="153" width="100" height="100"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="K3f-X6-fEF">
+                                <rect key="frame" x="157" y="154.5" width="100" height="98.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Is4-Vo-s0l"/>
                                     <constraint firstAttribute="width" constant="100" id="qyK-ev-Bpx"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Usuario" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="00i-Jm-78M">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Usuario" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="00i-Jm-78M">
                                 <rect key="frame" x="70.5" y="290" width="273" height="34"/>
                                 <color key="backgroundColor" red="1" green="0.52120530610000004" blue="1" alpha="0.3809663955479452" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -58,7 +58,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Contraseña" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xhf-er-GBz">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xhf-er-GBz">
                                 <rect key="frame" x="70.5" y="335" width="273" height="34"/>
                                 <color key="backgroundColor" red="1" green="0.52120530610000004" blue="1" alpha="0.3809663955" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -87,6 +87,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="mCW-fS-X8T"/>
                     <connections>
+                        <outlet property="loginBTN" destination="tkv-7J-5Ia" id="Fkk-7t-6Zu"/>
+                        <outlet property="passTXT" destination="Xhf-er-GBz" id="sj6-Y6-3RK"/>
+                        <outlet property="userTXT" destination="00i-Jm-78M" id="HJ9-C2-Skr"/>
                         <segue destination="Q6K-QD-fJh" kind="show" identifier="goToMain" id="fhv-gj-OUI"/>
                     </connections>
                 </viewController>
@@ -146,8 +149,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EGt-Sa-bvp">
-                                <rect key="frame" x="157" y="122" width="100" height="100"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.badge.plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="EGt-Sa-bvp">
+                                <rect key="frame" x="157" y="123" width="100" height="100.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="IHJ-Xe-ACW"/>
                                     <constraint firstAttribute="height" constant="100" id="qIC-X2-fi5"/>
@@ -175,7 +178,7 @@
                                     <color key="titleColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Usuario" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zf7-6t-Dpc">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Usuario" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zf7-6t-Dpc">
                                 <rect key="frame" x="70.5" y="331" width="273" height="34"/>
                                 <color key="backgroundColor" red="1" green="0.52120530610000004" blue="1" alpha="0.3809663955" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -186,7 +189,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Contraseña" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1IC-OJ-4jI">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1IC-OJ-4jI">
                                 <rect key="frame" x="70.5" y="400" width="273" height="34"/>
                                 <color key="backgroundColor" red="1" green="0.52120530610000004" blue="1" alpha="0.3809663955" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -228,6 +231,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="naR-VC-XHF"/>
                     <connections>
+                        <outlet property="avatarBTN" destination="dnm-rk-rDM" id="ZZT-fy-JHG"/>
+                        <outlet property="avatarImageView" destination="EGt-Sa-bvp" id="rdN-ot-tex"/>
+                        <outlet property="bithBTN" destination="lo1-Hn-O28" id="CSz-5k-y2a"/>
+                        <outlet property="passTXT" destination="1IC-OJ-4jI" id="xOs-mv-8xH"/>
+                        <outlet property="registerBTN" destination="I7C-vV-R1H" id="JXt-FC-0k5"/>
+                        <outlet property="userTXT" destination="zf7-6t-Dpc" id="fEK-f3-WdC"/>
                         <segue destination="Q6K-QD-fJh" kind="show" identifier="goToMain" id="PJd-As-VDr"/>
                     </connections>
                 </viewController>
@@ -252,6 +261,10 @@
             <point key="canvasLocation" x="-625" y="110"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cart" catalog="system" width="64" height="50"/>
+        <image name="person.badge.plus" catalog="system" width="64" height="58"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PJd-As-VDr"/>
     </inferredMetricsTieBreakers>
