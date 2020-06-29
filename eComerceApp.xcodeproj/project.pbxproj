@@ -10,13 +10,15 @@
 		010DA6CEC87C065F21CDAF27 /* Pods_eComerceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C3BCC2283C11E769707621 /* Pods_eComerceApp.framework */; };
 		212095EC24A96F8200D433C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212095EB24A96F8200D433C5 /* AppDelegate.swift */; };
 		212095EE24A96F8200D433C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212095ED24A96F8200D433C5 /* SceneDelegate.swift */; };
-		212095F024A96F8200D433C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212095EF24A96F8200D433C5 /* ViewController.swift */; };
 		212095F324A96F8200D433C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 212095F124A96F8200D433C5 /* Main.storyboard */; };
 		212095F624A96F8200D433C5 /* eComerceApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 212095F424A96F8200D433C5 /* eComerceApp.xcdatamodeld */; };
 		212095F824A96F8500D433C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 212095F724A96F8500D433C5 /* Assets.xcassets */; };
 		212095FB24A96F8500D433C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 212095F924A96F8500D433C5 /* LaunchScreen.storyboard */; };
 		2120960624A96F8600D433C5 /* eComerceAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120960524A96F8600D433C5 /* eComerceAppTests.swift */; };
 		2120961124A96F8600D433C5 /* eComerceAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120961024A96F8600D433C5 /* eComerceAppUITests.swift */; };
+		2120962224A9720000D433C5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120962124A9720000D433C5 /* LoginViewController.swift */; };
+		2120962424A9720E00D433C5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120962324A9720E00D433C5 /* RegisterViewController.swift */; };
+		2120962624A9721800D433C5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2120962524A9721800D433C5 /* MainViewController.swift */; };
 		C67AF19B57B524E515F8BFA9 /* Pods_eComerceAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA4EC0DE51017A9BD14E772 /* Pods_eComerceAppUITests.framework */; };
 		D5CD5FAA15001AE6AA800DEA /* Pods_eComerceAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F20FAD91E0CB619274D1345 /* Pods_eComerceAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -44,7 +46,6 @@
 		212095E824A96F8200D433C5 /* eComerceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eComerceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		212095EB24A96F8200D433C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		212095ED24A96F8200D433C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		212095EF24A96F8200D433C5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		212095F224A96F8200D433C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		212095F524A96F8200D433C5 /* eComerceApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = eComerceApp.xcdatamodel; sourceTree = "<group>"; };
 		212095F724A96F8500D433C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,6 +57,9 @@
 		2120960C24A96F8600D433C5 /* eComerceAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eComerceAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2120961024A96F8600D433C5 /* eComerceAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eComerceAppUITests.swift; sourceTree = "<group>"; };
 		2120961224A96F8600D433C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2120962124A9720000D433C5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2120962324A9720E00D433C5 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		2120962524A9721800D433C5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		30CD19B991783C0F604A0CD6 /* Pods-eComerceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eComerceApp.release.xcconfig"; path = "Target Support Files/Pods-eComerceApp/Pods-eComerceApp.release.xcconfig"; sourceTree = "<group>"; };
 		35019A270381EBBFD6506CEF /* Pods-eComerceAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eComerceAppTests.debug.xcconfig"; path = "Target Support Files/Pods-eComerceAppTests/Pods-eComerceAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4BA4EC0DE51017A9BD14E772 /* Pods_eComerceAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eComerceAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,9 +132,9 @@
 		212095EA24A96F8200D433C5 /* eComerceApp */ = {
 			isa = PBXGroup;
 			children = (
+				2120962024A971B000D433C5 /* ViewControllers */,
 				212095EB24A96F8200D433C5 /* AppDelegate.swift */,
 				212095ED24A96F8200D433C5 /* SceneDelegate.swift */,
-				212095EF24A96F8200D433C5 /* ViewController.swift */,
 				212095F124A96F8200D433C5 /* Main.storyboard */,
 				212095F724A96F8500D433C5 /* Assets.xcassets */,
 				212095F924A96F8500D433C5 /* LaunchScreen.storyboard */,
@@ -156,6 +160,16 @@
 				2120961224A96F8600D433C5 /* Info.plist */,
 			);
 			path = eComerceAppUITests;
+			sourceTree = "<group>";
+		};
+		2120962024A971B000D433C5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2120962124A9720000D433C5 /* LoginViewController.swift */,
+				2120962324A9720E00D433C5 /* RegisterViewController.swift */,
+				2120962524A9721800D433C5 /* MainViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		C2257D47F7A0E2B3E004C31B /* Pods */ = {
@@ -392,8 +406,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2120962224A9720000D433C5 /* LoginViewController.swift in Sources */,
+				2120962424A9720E00D433C5 /* RegisterViewController.swift in Sources */,
 				212095F624A96F8200D433C5 /* eComerceApp.xcdatamodeld in Sources */,
-				212095F024A96F8200D433C5 /* ViewController.swift in Sources */,
+				2120962624A9721800D433C5 /* MainViewController.swift in Sources */,
 				212095EC24A96F8200D433C5 /* AppDelegate.swift in Sources */,
 				212095EE24A96F8200D433C5 /* SceneDelegate.swift in Sources */,
 			);
