@@ -31,7 +31,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var userDB: String!
     var indexUser: Int!
     var userCoreData = [User]()
+    var historyCoreData = [History]()
     var userArray: Array<String> = []
+
+    var dateArray: Array<String> = []
     let imagePicker = UIImagePickerController()
     let actInd: UIActivityIndicatorView = UIActivityIndicatorView()
     let container: UIView = UIView()
@@ -42,6 +45,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var imageArray : [String] = [];
     var priceArrayArray : [Int] = [];
     var idArrayArray : [String] = [];
+    
+    var historyArray : [String] = [];
+    var dateArray_ : [String] = [];
 
     
     var isDataLoading:Bool=false
@@ -49,6 +55,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var limit:Int=20
     var offset:Int=0
     var didEndReached:Bool=false
+    
+    
     
     
     override func viewDidLoad() {
@@ -70,7 +78,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                
         self.initView();
         self.setGradientBackground();
-        
+        self.loadUsers()
+        self.loadHistory()
         
 
         // Do any additional setup after loading the view.
@@ -111,6 +120,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             historyView_.frame.origin.y =  self.containerView.frame.origin.y - 100
             containerView.addSubview(historyView_)
         
+            historyView_.mainTableView.delegate = self
+            historyView_.mainTableView.dataSource = self
+            let nibCell_ = UINib(nibName: "historyCell", bundle:nil)
+            historyView_.mainTableView.register(nibCell_, forCellReuseIdentifier: "historyCell")
+        
         
         
         
@@ -145,6 +159,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
      
     @objc func updateView(_ sender: Any) {
         
+        view.endEditing(true)
+               
+        
        if sc.selectedSegmentIndex == 0 {
             userView_.isHidden = true
             historyView_.isHidden = true
@@ -154,6 +171,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             userView_.isHidden = true
             historyView_.isHidden = false
             listView_.isHidden = true
+            self.loadHistory()
             }
             else{
             userView_.isHidden = false
@@ -182,6 +200,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.listView_.mainTableView.reloadData()
                 self.listView_.mainTableView.isHidden = true
                 self.loadProducts()
+                self.saveProduct()
+                
                 
                 
             }
@@ -207,8 +227,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
         searchString = listView_.searchTXT.text
         
+        let trm = searchString.trimmingCharacters(in: .whitespaces)
         
-        let baseURL = "https://shoppapp.liverpool.com.mx/appclienteservices/services/v3/plp?force-plp=true&search-string=\(searchString!)&page-number=\(pageNo)&number-of-items-per-page=20"
+        
+        
+        let baseURL = "https://shoppapp.liverpool.com.mx/appclienteservices/services/v3/plp?force-plp=true&search-string=\(trm)&page-number=\(pageNo)&number-of-items-per-page=20"
         
         debugPrint("Base URL \(baseURL)")
         
@@ -297,27 +320,53 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
+    //MARK: Table View
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+         if tableView == listView_.mainTableView{
           return tittleArray.count
+         }else{
+            return historyArray.count
+        }
+          
      }
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as!listCell
-    
-        cell.tittleTXT.text = tittleArray[indexPath.row]
-        cell.idTXT.text = idArrayArray[indexPath.row]
-        cell.priceTXT.text = "$\(priceArrayArray[indexPath.row])"
+        if tableView ==  listView_.mainTableView{
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as!listCell
+              
+            cell.tittleTXT.text = tittleArray[indexPath.row]
+            cell.idTXT.text = idArrayArray[indexPath.row]
+            cell.priceTXT.text = "$\(priceArrayArray[indexPath.row])"
 
-        cell.productView.sd_setImage(with: URL(string: imageArray[indexPath.row]))
+            cell.productView.sd_setImage(with: URL(string: imageArray[indexPath.row]))
+                  
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as!historyCell
+            
+            cell.productTXT.text = historyArray[indexPath.row]
+            cell.dateTXT.text = dateArray_[indexPath.row]
+            
+            return cell
+            
+        }
         
-        return cell
+      
        
      }
      
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 150
+        if tableView == listView_.mainTableView{
+            return 150
+            
+        }else{
+            return 50
+        }
+       
         
     }
     
@@ -344,6 +393,43 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     }
     
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        listView_.searchTXT.text = historyArray[indexPath.row]
+        
+        userView_.isHidden = true
+        historyView_.isHidden = true
+        listView_.isHidden = false
+        
+        sc.selectedSegmentIndex = 0
+        
+        
+    }
+    
+    
+    //MARK: Save History
+    
+
+    private func saveProduct(){
+       
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        print("date XT " + dateFormatter.string(from: date))
+        
+        let searchString = listView_.searchTXT.text!
+        let trm = searchString.trimmingCharacters(in: .whitespaces)
+        let product = History(context: persitantService.context)
+        product.search = trm
+        product.date = dateFormatter.string(from: date)
+        
+        persitantService.saveContext()
+        
+        self.historyView_.mainTableView.reloadData()
+        
+    }
     
     //MARK: Keyboard
         @objc func dismissKeyboard() {
@@ -373,5 +459,68 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                  }
              }
          }
+    
+    
+    //MARK: Core Data
+        private func loadUsers(){
+                 let  fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+            
+                do{
+                    let userCoreData = try
+                        persitantService.context.fetch(fetchRequest)
+                           self.userCoreData = userCoreData
+                           if userCoreData.count > 0 {
+                            let userNames = userCoreData[0].user!
+                            debugPrint("User CoreData  DB Total  \(userCoreData)")
+                            debugPrint("User Array 0 \(userNames)")
+                            for index in 0..<userCoreData.count{
+                                               
+                            let user_ =  userCoreData[index].user!
+                            userArray.append(user_)
+                                
+                            }
+                            
+                           }else{
+                            
+                              
+                            }
+                           
+                       }catch{}
+            }
+    
+    
+    func loadHistory(){
+     
+        let  fetchRequest: NSFetchRequest<History> = History.fetchRequest()
+                   
+                       do{
+                           let historyCoreData = try
+                               persitantService.context.fetch(fetchRequest)
+                                  self.historyCoreData = historyCoreData
+                                  if historyCoreData.count > 0 {
+                                    let product_ = historyCoreData[0].search!
+                                  
+                                   debugPrint("History  DB Total  \(product_)")
+                                   debugPrint("Hsitory Array 0 \(product_)")
+                                   for index in 0..<historyCoreData.count{
+                                    
+                                    let pr = historyCoreData[index].search!
+                                    let dt = historyCoreData[index].date!
+                                    
+                                    historyArray.append(pr)
+                                    dateArray_.append(dt)
+                                                      
+                                       
+                                   }
+                                self.historyView_.mainTableView.reloadData()
+                                   
+                                  }else{
+                                   
+                                     
+                                   }
+                                  
+                              }catch{}
+    }
+
 
 }
