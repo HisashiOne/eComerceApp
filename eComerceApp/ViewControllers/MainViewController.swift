@@ -16,7 +16,7 @@ import SDWebImage
 import AVFoundation
 
 
-class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
  
 
     @IBOutlet weak var navigationView: UIView!
@@ -78,7 +78,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                
         self.initView();
         self.setGradientBackground();
+        
         self.loadUsers()
+        self.loadIndexUser()
         self.loadHistory()
         
 
@@ -135,6 +137,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             userView_.frame =  self.containerView.frame
             userView_.frame.origin.y =  self.containerView.frame.origin.y - 100
             containerView.addSubview(userView_)
+        
+
+           
+            userView_.logoutBTN.addTarget(self, action: #selector(logoutUser(_:)), for: .touchUpInside)
+        
+          //  initUser()
         
     
             userView_.isHidden = true
@@ -460,6 +468,135 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
              }
          }
     
+    //PRAGMA MARK: User
+       
+       func initUser(){
+
+           imagePicker.delegate = self
+           
+           userView_.saveBTN.addTarget(self, action: #selector(updateUser(_:)), for: .touchUpInside)
+           userView_.avatarBTN.addTarget(self, action: #selector(photoPicker(sender:)), for: .touchUpInside)
+        
+            userView_.birthBTN.addTarget(self, action: #selector(datePicker(sender:)), for: .touchUpInside)
+
+           
+           
+       }
+       
+       @objc func datePicker(sender: Any){
+              
+          view.endEditing(true)
+              
+           let myDatePicker: UIDatePicker = UIDatePicker()
+           myDatePicker.timeZone = NSTimeZone.local
+           myDatePicker.frame = CGRect(x: 0, y: 15, width: 270, height: 200)
+              myDatePicker.datePickerMode = .date
+           let alertController = UIAlertController(title: "\n\n\n\n\n\n\n\n", message: nil, preferredStyle: UIAlertController.Style.alert)
+           alertController.view.addSubview(myDatePicker)
+           let selectAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { _ in
+              
+              
+              
+              let formatter = DateFormatter()
+              formatter.dateFormat = "dd-MM-yyyy"
+              formatter.timeZone = NSTimeZone(forSecondsFromGMT: 0) as TimeZone?
+              let dateSelected = (formatter.string(from: myDatePicker.date)).uppercased()
+               self.userView_.birthBTN.setTitle(dateSelected, for: .normal)
+             // print("Selected Date: \(myDatePicker.date)")
+              
+           })
+           let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
+           alertController.addAction(selectAction)
+           alertController.addAction(cancelAction)
+           present(alertController, animated: true, completion:{})
+              
+          }
+          
+       
+       
+       @objc func updateUser(_ sender: Any){
+           
+           debugPrint("Update User")
+           
+         
+           if !userView_.passTXT.text!.isEmpty{
+               userCoreData[indexUser].password = userView_.passTXT.text!
+           }
+           
+           
+           userCoreData[indexUser].birthdate = userView_.birthBTN.currentTitle
+           let image = userView_.avatarImage.image
+           let data = image?.jpegData(compressionQuality: 0.5)
+           
+           userCoreData[indexUser].avatar = data
+           
+           persitantService.saveContext()
+           
+           let snackbar = TTGSnackbar(message: "Datos Guardados Crrectamente", duration: .middle)
+           snackbar.show()
+           
+           
+       }
+       
+       @objc func photoPicker(sender: Any){
+              
+              imagePicker.allowsEditing = false
+              imagePicker.sourceType = .photoLibrary
+                    
+              present(imagePicker, animated: true, completion: nil)
+              
+          }
+       
+       func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+              
+              if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+              
+              debugPrint("Selected Image")
+               userView_.avatarImage.contentMode = .scaleAspectFill
+               userView_.avatarImage.image = pickedImage
+              }
+              
+              dismiss(animated: true, completion: nil)
+          }
+          
+          
+
+        
+          func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+              
+              dismiss(animated: true, completion: nil)
+              
+          }
+          
+      @objc func logoutUser(_ Sender: Any){
+        
+          
+          let defaults = UserDefaults.standard
+          defaults.removeObject(forKey: "user")
+          
+           self.navigationController?.popToRootViewController(animated: true)
+         
+          
+      }
+    
+    private func loadIndexUser(){
+          indexUser = userArray.firstIndex(of: userDB)!
+          
+          debugPrint("Home User Index \(indexUser ?? 0)")
+        
+        userView_.userTXT.text = userCoreData[indexUser].user
+        userView_.passTXT.text = userCoreData[indexUser].password
+        userView_.birthBTN.setTitle(userCoreData[indexUser].birthdate, for: .normal)
+             
+        userView_.avatarImage.contentMode = .scaleAspectFill
+          
+        let data_ = userCoreData[indexUser].avatar!
+        let image_ = UIImage(data: data_)
+        userView_.avatarImage.image = image_
+        userView_.avatarImage.layer.cornerRadius = 50
+          
+          
+      }
     
     //MARK: Core Data
         private func loadUsers(){
@@ -479,6 +616,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                             userArray.append(user_)
                                 
                             }
+                            
+                            
+                                 
+                            initUser()
+                            
                             
                            }else{
                             

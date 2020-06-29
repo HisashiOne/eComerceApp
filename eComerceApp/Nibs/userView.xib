@@ -12,10 +12,113 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="userView" customModule="eComerceApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Usuario" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w9r-dh-npD">
+                    <rect key="frame" x="70.5" y="205" width="273" height="34"/>
+                    <color key="backgroundColor" red="1" green="0.52120530610000004" blue="1" alpha="0.3809663955" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="273" id="Gwn-9E-ZW4"/>
+                        <constraint firstAttribute="height" constant="34" id="mzz-Tc-dSb"/>
+                    </constraints>
+                    <color key="textColor" red="0.26667342560000001" green="0.40163566309999998" blue="0.59930203049999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tKq-er-Veg">
+                    <rect key="frame" x="70.5" y="259" width="273" height="34"/>
+                    <color key="backgroundColor" red="1" green="0.52120530610000004" blue="1" alpha="0.3809663955" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="Pig-xe-hq5"/>
+                        <constraint firstAttribute="width" constant="273" id="Qew-Tf-xmy"/>
+                    </constraints>
+                    <color key="textColor" red="0.26667342560000001" green="0.40163566309999998" blue="0.59930203049999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.badge.plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="g8k-S9-VvL">
+                    <rect key="frame" x="157" y="31" width="100" height="100.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="0QL-Jb-Vaj"/>
+                        <constraint firstAttribute="width" constant="100" id="gw1-sL-VUR"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nrz-aE-NRg">
+                    <rect key="frame" x="102" y="138" width="210" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="210" id="Ede-Jb-2bc"/>
+                        <constraint firstAttribute="height" constant="36" id="aNK-kX-7Mk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                    <state key="normal" title="Seleccionar Imagen">
+                        <color key="titleColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDg-bP-Vgr">
+                    <rect key="frame" x="102" y="317" width="210" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="210" id="QUv-eE-fsl"/>
+                        <constraint firstAttribute="height" constant="35" id="d6h-Mn-KNE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                    <state key="normal" title="Fecha de Nacimiento">
+                        <color key="titleColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KdV-nS-Bty">
+                    <rect key="frame" x="102" y="372" width="210" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="Ggr-Br-OCu"/>
+                        <constraint firstAttribute="width" constant="210" id="mDl-28-uiz"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                    <state key="normal" title="Guardar">
+                        <color key="titleColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Hf-k2-aUC">
+                    <rect key="frame" x="102" y="415" width="210" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="210" id="9S7-B5-cLk"/>
+                        <constraint firstAttribute="height" constant="35" id="A9d-E7-v4a"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                    <state key="normal" title="Logout">
+                        <color key="titleColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+            </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="0Hf-k2-aUC" firstAttribute="top" secondItem="KdV-nS-Bty" secondAttribute="bottom" constant="8" id="5ZE-xe-AfE"/>
+                <constraint firstItem="Nrz-aE-NRg" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6Dk-tS-Rgv"/>
+                <constraint firstItem="0Hf-k2-aUC" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6o4-hR-BZf"/>
+                <constraint firstItem="KdV-nS-Bty" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="9tC-fU-nWH"/>
+                <constraint firstItem="KdV-nS-Bty" firstAttribute="top" secondItem="XDg-bP-Vgr" secondAttribute="bottom" constant="20" id="AOb-pS-ug2"/>
+                <constraint firstItem="XDg-bP-Vgr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Qgs-1T-m0g"/>
+                <constraint firstItem="tKq-er-Veg" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Rpx-Xb-Jqr"/>
+                <constraint firstItem="w9r-dh-npD" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="SWT-H2-Yib"/>
+                <constraint firstItem="XDg-bP-Vgr" firstAttribute="top" secondItem="tKq-er-Veg" secondAttribute="bottom" constant="24" id="ZRO-qb-Sp3"/>
+                <constraint firstItem="tKq-er-Veg" firstAttribute="top" secondItem="w9r-dh-npD" secondAttribute="bottom" constant="20" id="mN9-a6-uJt"/>
+                <constraint firstItem="g8k-S9-VvL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="naK-fK-m0W"/>
+                <constraint firstItem="Nrz-aE-NRg" firstAttribute="top" secondItem="g8k-S9-VvL" secondAttribute="bottom" constant="8" id="p4i-47-uFX"/>
+                <constraint firstItem="g8k-S9-VvL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="tpb-Mg-YNP"/>
+                <constraint firstItem="w9r-dh-npD" firstAttribute="top" secondItem="Nrz-aE-NRg" secondAttribute="bottom" constant="31" id="x6p-uA-5ac"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="139" y="82"/>
+            <connections>
+                <outlet property="avatarBTN" destination="Nrz-aE-NRg" id="yRL-Vz-NN6"/>
+                <outlet property="avatarImage" destination="g8k-S9-VvL" id="cKr-nn-zia"/>
+                <outlet property="birthBTN" destination="XDg-bP-Vgr" id="siC-Oe-nde"/>
+                <outlet property="logoutBTN" destination="0Hf-k2-aUC" id="Heo-uU-xkv"/>
+                <outlet property="passTXT" destination="tKq-er-Veg" id="kLe-d4-5bB"/>
+                <outlet property="saveBTN" destination="KdV-nS-Bty" id="f6P-tl-1Ne"/>
+                <outlet property="userTXT" destination="w9r-dh-npD" id="rh6-1Q-3rt"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="81.696428571428569"/>
         </view>
     </objects>
+    <resources>
+        <image name="person.badge.plus" catalog="system" width="64" height="58"/>
+    </resources>
 </document>
